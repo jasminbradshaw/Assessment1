@@ -19,7 +19,6 @@ int main ()
     switch(c) // this directs the code based on the user's input
     {
         case '1': printf("You selected option 1\n"); // this case will take a array(message) and integer(key) as input and output encypted text
-<<<<<<< HEAD
             char message1[100], letter1; //initialises the message as an array, and a variable which will be used for individual letters
             int key1, count1=0; //initialises the key and a counter which will be used when changing individual letters
     
@@ -53,46 +52,10 @@ int main ()
             
             
             printf("Your message is: %s\n", message1);
-=======
-            char message[100], letter; //initialises the message as an array, and a variable which will be used for individual letters
-            int key, i=0; //initialises the key and a counter which will be used when changing individual letters
-    
-            printf("Enter a message:");
-            scanf("%s", message);
-            printf ("Enter an integer to use as the key:");
-            scanf("%d", &key);
-            for (i=0; message[i] != '\0'; ++i) //This is where each letter in the word gets individually rotated by the key
-            {
-                letter=message[i]; //the char "letter" becomes element i of the array "message"
-                
-                if (letter>='a' && letter<='z') //
-                {
-                    letter=letter+key;
-                    if (letter>'z')
-                    {
-                        letter=letter-'z'+'a'-1;
-                    }
-                    message[i]=letter;
-                }
-                else if (letter>='A' && letter<='Z')
-                {
-                    letter=letter+key;
-                    if (letter>'Z')
-                    {
-                        letter=letter-'Z'+'A'-1;
-                    }
-                    message[i]=letter;
-                }
-            }
-            
-            
-            printf("Your message is: %s", message);
->>>>>>> refs/heads/master
         
             break;
             
         case '2': printf("You selected option 2\n");
-<<<<<<< HEAD
             char message2[100], letter2; //initialises the message as an array, and a variable which will be used for individual letters
             int key2, count2=0; //initialises the key and a counter which will be used when changing individual letters
     
@@ -128,9 +91,6 @@ int main ()
             printf("Your message is: %s\n", message2);
         
             
-=======
-        
->>>>>>> refs/heads/master
         
         
         
@@ -178,4 +138,3 @@ int main ()
     
     }
 }  
-
