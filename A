@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+//This menu allows the user to select what they would like to do using standard input and scanf()
 printf("Please select an option: \n");
 printf("1) Encrypt message using rotation cipher given text and rotation amount\n");
 printf("2) Decrypt message using rotation cipher given text and rotation amount\n");
@@ -12,4 +13,20 @@ printf("Selection:");
 char c;
 scanf("%c", &c);
 
-//switch case
+switch(c)
+{
+    case '1': //do the stuff for 1
+        break;
+    case '2':
+        break;
+    case '3':
+        break;
+    case '4':
+        break;
+    case '5':
+        break;
+    case '6':
+        break;
+    default: printf("Unknown option %c\nPlease enter 1, 2, 3, 4, 5 or 6\n");
+    
+}
