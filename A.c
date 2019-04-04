@@ -18,7 +18,8 @@ int main ()
 
     switch(c) // this directs the code based on the user's input
     {
-        case '1': printf("You selected option 1\n"); // this case will take a array(message) and integer(key) as input and output encypted text
+        /*Case 1 (encryption) will take an array(message1) and an integer(key1) as inputs, and will output encrypted text. */
+        case '1': printf("You selected option 1\n"); 
             char message1[100], letter1; //initialises the message as an array, and a variable which will be used for individual letters
             int key1, count1=0; //initialises the key and a counter which will be used when changing individual letters
     
@@ -32,12 +33,12 @@ int main ()
                 
                 if (letter1>='a' && letter1<='z') //lowercase letters
                 {
-                    letter1=letter1+key1;
+                    letter1=letter1+key1; //the letter (which is stored as a number) is rotated by the value of key
                     if (letter1>'z')
                     {
                         letter1=letter1-'z'+'a'-1; //this takes into account the fact that z is at the end of the alphabet
                     }
-                    message1[count1]=letter1;
+                    message1[count1]=letter1; //the new letter is assigned to the original element of the array
                 }
                 else if (letter1>='A' && letter1<='Z')//uppercase letters
                 {
@@ -55,7 +56,10 @@ int main ()
         
             break;
             
-        case '2': printf("You selected option 2\n");
+            /*Case 2 is simply the reverse of case 1.  The only difference is that instead of incrementing the value of letter by key, the
+            code decrements the value of letter by key. Also, when considering the fact that the letters at the end of the alphabet can
+            'drop off' end of the stored ASCII codes, the method which we use to correct this is different. */
+        case '2': printf("You selected option 2\n"); 
             char message2[100], letter2; //initialises the message as an array, and a variable which will be used for individual letters
             int key2, count2=0; //initialises the key and a counter which will be used when changing individual letters
     
