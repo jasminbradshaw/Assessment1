@@ -23,9 +23,9 @@ int main ()
             char message1[100], letter1; //initialises the message as an array, and a variable which will be used for individual letters
             int key1, count1=0; //initialises the key and a counter which will be used when changing individual letters
     
-            printf("Enter a message:");
+            printf("Enter a message:\n");
             scanf("%s", message1);
-            printf ("Enter an integer to use as the key:");
+            printf ("Enter an integer to use as the key:\n");
             scanf("%d", &key1);
             for (count1=0; message1[count1] != '\0'; ++count1) //This is where each letter in the word gets individually rotated by the key
             {
@@ -63,9 +63,9 @@ int main ()
             char message2[100], letter2; //initialises the message as an array, and a variable which will be used for individual letters
             int key2, count2=0; //initialises the key and a counter which will be used when changing individual letters
     
-            printf("Enter a message:");
+            printf("Enter a message:\n");
             scanf("%s", message2);
-            printf ("Enter an integer to use as the key:");
+            printf ("Enter an integer to use as the key:\n");
             scanf("%d", &key2);
             for (count2=0; message2[count2] != '\0'; ++count2) //This is where each letter in the word gets individually rotated by the key
             {
