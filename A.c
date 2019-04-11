@@ -14,7 +14,7 @@ int main ()
     printf("Selection:"); // this prompts the user to select an option from the menu by typing the corresponding number
 
     char c; 
-    scanf("%c", &c); //reads the user's input and stores it in the char c
+    scanf("%c", &c); //reads the user's input and stores it in the char c  
 
     switch(c) // this directs the code based on the user's input
     {
@@ -22,9 +22,10 @@ int main ()
         case '1': printf("You selected option 1\n"); 
             char message1[100], letter1; //initialises the message as an array, and a variable which will be used for individual letters
             int key1, count1=0; //initialises the key and a counter which will be used when changing individual letters
-    
+            
             printf("Enter a message:\n");
-            scanf("%s", message1);
+            scanf("\n%[^\n]s", message1);
+            
             printf ("Enter an integer to use as the key:\n");
             scanf("%d", &key1);
             for (count1=0; message1[count1] != '\0'; ++count1) //This is where each letter in the word gets individually rotated by the key
@@ -33,38 +34,37 @@ int main ()
                 
                 if (letter1>='a' && letter1<='z') //lowercase letters
                 {
-                    letter1=letter1+key1; //the letter (which is stored as a number) is rotated by the value of key
-                    if (letter1>'z')
-                    {
-                        letter1=letter1-'z'+'a'-1; //this takes into account the fact that z is at the end of the alphabet
-                    }
+                    letter1=((letter1-'a')+key1)%26+'a'; //the letter (which is stored as a number) is rotated by the value of key
+                   
                     message1[count1]=letter1; //the new letter is assigned to the original element of the array
                 }
                 else if (letter1>='A' && letter1<='Z')//uppercase letters
                 {
-                    letter1=letter1+key1;
-                    if (letter1>'Z')
-                    {
-                        letter1=letter1-'Z'+'A'-1;
-                    }
+                   letter1=((letter1-'A')+key1)%26+'A';
+                 
+                    message1[count1]=letter1;
+                }
+                else
+                {
                     message1[count1]=letter1;
                 }
             }
             
             
-            printf("Your message is: %s\n", message1);
+            printf("Your message encrypted is: %s\n", message1);
         
             break;
             
             /*Case 2 is simply the reverse of case 1.  The only difference is that instead of incrementing the value of letter by key, the
             code decrements the value of letter by key. Also, when considering the fact that the letters at the end of the alphabet can
             'drop off' end of the stored ASCII codes, the method which we use to correct this is different. */
+           
         case '2': printf("You selected option 2\n"); 
             char message2[100], letter2; //initialises the message as an array, and a variable which will be used for individual letters
             int key2, count2=0; //initialises the key and a counter which will be used when changing individual letters
     
             printf("Enter a message:\n");
-            scanf("%s", message2);
+            scanf("\n%[^\n]s", message2);
             printf ("Enter an integer to use as the key:\n");
             scanf("%d", &key2);
             for (count2=0; message2[count2] != '\0'; ++count2) //This is where each letter in the word gets individually rotated by the key
@@ -75,24 +75,29 @@ int main ()
                 {
                     letter2=letter2-key2;
                     if (letter2<'a')
-                    {
-                        letter2=letter2+'z'-'a'+1; //this takes into account the fact that z is at the end of the alphabet
-                    }
+                        {
+                            letter2=letter2+'z'-'a'+1; //this takes into account the fact that z is at the end of the alphabet
+                        }
                     message2[count2]=letter2;
                 }
                 else if (letter2>='A' && letter2<='Z')//uppercase letters
                 {
                     letter2=letter2-key2;
                     if (letter2<'A')
-                    {
-                        letter2=letter2+'Z'-'A'+1;
-                    }
+                        {
+                            letter2=letter2+'Z'-'A'+1; //this takes into account the fact that z is at the end of the alphabet
+                        }
+                    message2[count2]=letter2;
+                }
+                
+                else
+                {
                     message2[count2]=letter2;
                 }
             }
             
             
-            printf("Your message is: %s\n", message2);
+            printf("Your message decrypted is: %s\n", message2);
         
             
         
@@ -121,8 +126,47 @@ int main ()
             break;
             
         case '5': printf("You selected option 5\n");
-        
-        
+            char message5[100], letter5; //initialises the message as an array, and a variable which will be used for individual letters
+            //int key5, count5=0; //initialises the key and a counter which will be used when changing individual letters
+    
+            printf("Enter a message:\n");
+            scanf("\n%[^\n]s", message5);
+            for (int key5=0; key5<27; key5++) //this will force the code to rotate the message by every possibile key
+            {
+                char decrypted[100];
+                for (int count5=0; message5[count5] != '\0'; count5++) //This is where each letter in the word gets individually rotated by the key
+                {
+                    letter5=message5[count5]; //the char "letter" becomes element i of the array "message"
+                
+                    if (letter5>='a' && letter5<='z') //lowercase letters
+                    {
+                        letter5=letter5-key5;
+                        if (letter5<'a')
+                        {
+                            letter5=letter5+'z'-'a'+1; //this takes into account the fact that z is at the end of the alphabet
+                        }
+                        decrypted[count5]=letter5;
+                    }
+                    else if (letter5>='A' && letter5<='Z')//uppercase letters
+                    {
+                        //letter2=((letter2-'A')-key2)%26+'A';
+                        letter5=letter5-key5;
+                        if (letter5<'A')
+                        {
+                            letter5=letter5+'Z'-'A'+1;
+                        }
+                        decrypted[count5]=letter5;
+                    }
+                    else
+                    {
+                        decrypted[count5]=letter5;
+                    }
+                }
+            
+            
+                printf("\nYour message decrypted with key %d is:\n%s\n",key5, decrypted); // this will print every possible decryption
+        }
+
         
         
         
@@ -141,4 +185,4 @@ int main ()
         default: printf("Unknown option %c\nPlease enter 1, 2, 3, 4, 5 or 6\n", c);
     
     }
-}  
+}
