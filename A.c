@@ -102,6 +102,11 @@ int main ()
         
             break;
             
+        /* Case 3 recieves a message from the user (must be typed in uppercase) and string of 26 characters 
+           (also uppercase, this is the substitution alphabet). Each letter of the user's message is 
+           individually replaced with the respective letter in the substitution alphabet, then the 
+           encrypted message is printed.
+         */
         case '3': printf("You selected option 3\n");
             char alphabet3[26]={'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
             char message3[250];
@@ -114,25 +119,29 @@ int main ()
             printf("Enter a substitution alphabet of 26 characters in all UPPER CASE:\n");
             scanf("\n%[^\n]s", key3);
             
-            for(count3a=0; count3a<strlen(message3); count3a++)
+            for(count3a=0; count3a<strlen(message3); count3a++)//this loop moves along each letter of the input message
+            //the function strlen calculates how many characters are in message3
+            //the for loop ends when count3a is at the final character of message3
             {
-                for(count3b=0; count3b<26; count3b++)
+                for(count3b=0; count3b<26; count3b++) //this moves along each letter of the alphabet
                     {
-                        if (alphabet3[count3b]==message3[count3a])
+                        if (alphabet3[count3b]==message3[count3a])//when a letter in the alphabet is the same as the letter in the message
                         {
-                            message3[count3a]=key3[count3b];
+                            message3[count3a]=key3[count3b];//the message letter becomes the substitution letter
                             break;
                         }
                         else
                         {
-                            message3[count3a]=message3[count3a];
+                            message3[count3a]=message3[count3a];//if the character in the message isn't a letter (eg ?) it remains as it was input by the user
                         }
                     }
             }
             printf("Your message encrypted is: \n%s\n", message3);
      
             break;
-            
+         /*Case 4 works in a similar fashion to case 3 but in reverse. The user inputs 
+          encryped text and a substitution alphabet, and recieves a decrytped message as the output.
+          */
         case '4': printf("You selected option 4\n");
             char alphabet4[26]={'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
             char message4[250];
@@ -147,18 +156,18 @@ int main ()
             scanf("\n%[^\n]s", key4);
             
     
-            for(count4a=0; count4a<strlen(message4); count4a++)
+            for(count4a=0; count4a<strlen(message4); count4a++)//loop moves along each character of cipher text
             {
-                for(count4b=0; count4b<26; count4b++)
+                for(count4b=0; count4b<26; count4b++)//loop moves along each letter of alphabet
                     {
-                        if (message4[count4a]==key4[count4b])
+                        if (message4[count4a]==key4[count4b])//when a specific character in the cipher text is a specific letter in the substitution alphabet
                         {
-                            message4[count4a]=alphabet4[count4b];
+                            message4[count4a]=alphabet4[count4b];//that character becomes the corresponding character in the standard alphabet
                             break;
                         }
                         else
                         {
-                            message4[count4a]=message4[count4a];
+                            message4[count4a]=message4[count4a];//if the character is anything other than a letter it remains the same
                         }
                     }
             }
@@ -190,7 +199,6 @@ int main ()
                     }
                     else if (letter5>='A' && letter5<='Z')//uppercase letters
                     {
-                        //letter2=((letter2-'A')-key2)%26+'A';
                         letter5=letter5-key5;
                         if (letter5<'A')
                         {
