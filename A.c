@@ -103,7 +103,7 @@ int main ()
             break;
             
         case '3': printf("You selected option 3\n");
-            char alphabet[26]={'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+            char alphabet3[26]={'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
             char message3[250];
             char key3[26];
             int count3a=0, count3b=0;
@@ -118,7 +118,7 @@ int main ()
             {
                 for(count3b=0; count3b<26; count3b++)
                     {
-                        if (alphabet[count3b]==message3[count3a])
+                        if (alphabet3[count3b]==message3[count3a])
                         {
                             message3[count3a]=key3[count3b];
                             break;
@@ -130,12 +130,31 @@ int main ()
             break;
             
         case '4': printf("You selected option 4\n");
-        
-        
-        
-        
-        
+            char alphabet4[26]={'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+            char message4[250];
+            char key4[26];
+            int count4a=0, count4b=0;
+    
+            printf("Enter cipher text in all UPPER CASE:\n");
+            scanf("\n%[^\n]s", message4);
+
+            printf("Enter a substitution alphabet of 26 characters in all UPPER CASE:\n");
+            scanf("\n%[^\n]s", key4);
+    
+            for(count4a=0; count4a<strlen(message4); count4a++)
+            {
+                for(count4b=0; count4b<26; count4b++)
+                    {
+                        if (message4[count4a]==key4[count4b])
+                        {
+                            message4[count4a]=alphabet4[count4b];
+                            break;
+                        }
+                    }
+            }
             
+            printf("Your message encrypted is: \n%s\n", message4);
+        
             break;
             
         case '5': printf("You selected option 5\n");
