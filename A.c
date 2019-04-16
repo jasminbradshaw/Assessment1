@@ -64,7 +64,7 @@ int main ()
             char message2[100], letter2; //initialises the message as an array, and a variable which will be used for individual letters
             int key2, count2=0; //initialises the key and a counter which will be used when changing individual letters
     
-            printf("Enter a message:\n");
+            printf("Enter cipher text:\n");
             scanf("\n%[^\n]s", message2);
             printf ("Enter an integer to use as the key:\n");
             scanf("%d", &key2);
