@@ -52,7 +52,7 @@ int main ()
             }
             
             
-            printf("Your message encrypted is: %s\n", message1);
+            printf("Your message encrypted is: \n%s\n", message1);
         
             break;
             
@@ -98,7 +98,7 @@ int main ()
             }
             
             
-            printf("Your message decrypted is: %s\n", message2);
+            printf("Your message decrypted is: \n%s\n", message2);
         
             break;
             
@@ -123,6 +123,10 @@ int main ()
                             message3[count3a]=key3[count3b];
                             break;
                         }
+                        else
+                        {
+                            message3[count3a]=message3[count3a];
+                        }
                     }
             }
             printf("Your message encrypted is: \n%s\n", message3);
@@ -134,12 +138,14 @@ int main ()
             char message4[250];
             char key4[26];
             int count4a=0, count4b=0;
+            int i=0, j=0;
     
             printf("Enter cipher text in all UPPER CASE:\n");
             scanf("\n%[^\n]s", message4);
-
+            
             printf("Enter a substitution alphabet of 26 characters in all UPPER CASE:\n");
             scanf("\n%[^\n]s", key4);
+            
     
             for(count4a=0; count4a<strlen(message4); count4a++)
             {
@@ -150,10 +156,14 @@ int main ()
                             message4[count4a]=alphabet4[count4b];
                             break;
                         }
+                        else
+                        {
+                            message4[count4a]=message4[count4a];
+                        }
                     }
             }
             
-            printf("Your message encrypted is: \n%s\n", message4);
+            printf("Your message decrypted is: \n%s\n", message4);
         
             break;
             
