@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 int main ()
 {
@@ -99,21 +100,33 @@ int main ()
             
             printf("Your message decrypted is: %s\n", message2);
         
-            
-        
-        
-        
-        
-            
             break;
             
         case '3': printf("You selected option 3\n");
-        
-        
-        
-        
-        
+            char alphabet[26]={'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+            char message3[250];
+            char key3[26];
+            int count3a=0, count3b=0;
             
+            printf("Enter a message in all UPPER CASE:\n");
+            scanf("\n%[^\n]s", message3);
+        
+            printf("Enter a substitution alphabet of 26 characters in all UPPER CASE:\n");
+            scanf("\n%[^\n]s", key3);
+            
+            for(count3a=0; count3a<strlen(message3); count3a++)
+            {
+                for(count3b=0; count3b<26; count3b++)
+                    {
+                        if (alphabet[count3b]==message3[count3a])
+                        {
+                            message3[count3a]=key3[count3b];
+                            break;
+                        }
+                    }
+            }
+            printf("Your message encrypted is: \n%s\n", message3);
+     
             break;
             
         case '4': printf("You selected option 4\n");
@@ -127,7 +140,6 @@ int main ()
             
         case '5': printf("You selected option 5\n");
             char message5[100], letter5; //initialises the message as an array, and a variable which will be used for individual letters
-            //int key5, count5=0; //initialises the key and a counter which will be used when changing individual letters
     
             printf("Enter a message:\n");
             scanf("\n%[^\n]s", message5);
