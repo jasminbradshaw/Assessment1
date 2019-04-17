@@ -21,7 +21,7 @@ int main ()
     {
         /*Case 1 (encryption) will take an array(message1) and an integer(key1) as inputs, and will output encrypted text. */
         case '1': printf("You selected option 1\n"); 
-            char message1[100], letter1; //initialises the message as an array, and a variable which will be used for individual letters
+            char message1[250], letter1; //initialises the message as an array, and a variable which will be used for individual letters
             int key1, count1=0; //initialises the key and a counter which will be used when changing individual letters
             
             printf("Enter a message:\n");
@@ -61,7 +61,7 @@ int main ()
             'drop off' end of the stored ASCII codes, the method which we use to correct this is different. */
            
         case '2': printf("You selected option 2\n"); 
-            char message2[100], letter2; //initialises the message as an array, and a variable which will be used for individual letters
+            char message2[250], letter2; //initialises the message as an array, and a variable which will be used for individual letters
             int key2, count2=0; //initialises the key and a counter which will be used when changing individual letters
     
             printf("Enter cipher text:\n");
@@ -177,7 +177,7 @@ int main ()
             break;
             
         case '5': printf("You selected option 5\n");
-            char message5[100], letter5; //initialises the message as an array, and a variable which will be used for individual letters
+            char message5[250], letter5; //initialises the message as an array, and a variable which will be used for individual letters
     
             printf("Enter a message:\n");
             scanf("\n%[^\n]s", message5);
@@ -223,7 +223,48 @@ int main ()
             break;
             
         case '6': printf("You selected option 6\n");
-        
+            char message6[250];
+            int count6=0;
+            int cA=0,cB=0,cC=0,cD=0,cE=0,cF=0,cG=0,cH=0,cI=0,cJ=0,cK=0,cL=0,cM=0,cN=0,cO=0,cP=0,cQ=0,cR=0,cS=0,cT=0,cU=0,cV=0,cW=0,cX=0,cY=0,cZ=0;
+            
+            printf("Enter cipher text in all UPPER CASE:\n");
+            scanf("\n%[^\n]s", message6);
+            
+            for(count6=0; count6<strlen(message6); count6++)
+            {
+                switch (message6[count6])
+                {
+                    case 'A': cA++; break;
+                    case 'B': cB++; break;
+                    case 'C': cC++; break;
+                    case 'D': cD++; break;
+                    case 'E': cE++; break;
+                    case 'F': cF++; break;
+                    case 'G': cG++; break;
+                    case 'H': cH++; break;
+                    case 'I': cI++; break;
+                    case 'J': cJ++; break;
+                    case 'K': cK++; break;
+                    case 'L': cL++; break;
+                    case 'M': cM++; break;
+                    case 'N': cN++; break;
+                    case 'O': cO++; break;
+                    case 'P': cP++; break;
+                    case 'Q': cQ++; break;
+                    case 'R': cR++; break;
+                    case 'S': cS++; break;
+                    case 'T': cT++; break;
+                    case 'U': cU++; break;
+                    case 'V': cV++; break;
+                    case 'W': cW++; break;
+                    case 'X': cX++; break;
+                    case 'Y': cY++; break;
+                    case 'Z': cZ++; break;
+                }
+            }
+            printf("A: %d\nB: %d\nC: %d\nD: %d\nE: %d\nF: %d\nG: %d\nH: %d\nI: %d\nJ: %d\nK: %d\nL: %d\n",cA,cB,cC,cD,cE,cF,cG,cH,cI,cJ,cK,cL);
+            printf("M: %d\nN: %d\nO: %d\nP: %d\nQ: %d\nR: %d\nS: %d\nT: %d\nU: %d\nV: %d\nW: %d\nX: %d\n",cM,cN,cO,cP,cQ,cR,cS,cT,cU,cV,cW,cX);    
+            printf("Y: %d\nZ: %d\n",cY, cZ);
         
         
         
