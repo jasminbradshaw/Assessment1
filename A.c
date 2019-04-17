@@ -223,7 +223,7 @@ int main ()
             break;
             
         case '6': printf("You selected option 6\n");
-            char message6[250];
+            char message6[1000];
             int count6=0;
             int cA=0,cB=0,cC=0,cD=0,cE=0,cF=0,cG=0,cH=0,cI=0,cJ=0,cK=0,cL=0,cM=0,cN=0,cO=0,cP=0,cQ=0,cR=0,cS=0,cT=0,cU=0,cV=0,cW=0,cX=0,cY=0,cZ=0;
             
