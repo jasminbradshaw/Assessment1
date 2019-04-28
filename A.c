@@ -247,7 +247,11 @@ int main ()
          */
         case '6': printf("You selected option 6\n");
             char message6[1000];//this array stores the encrypted message
-            int count6=0;
+            char freq[26]={'E', 'T', 'A', 'O', 'I', 'N', 'S', 'H', 'R', 'D', 'L', 'U', 'C', 'M', 'F', 'Y', 'W', 'G', 'P', 'B', 'V', 'K', 'X', 'Q', 'J', 'Z'};
+            char key6[26];
+            int count6=0;//this count is used in the loop which counts how many times each letter appears
+            int count6a=0; 
+            int count6b=0;//count6a and 6b are used during decryption
             int cA=0,cB=0,cC=0,cD=0,cE=0,cF=0,cG=0,cH=0,cI=0,cJ=0,cK=0,cL=0,cM=0,cN=0,cO=0,cP=0,cQ=0,cR=0,cS=0,cT=0,cU=0,cV=0,cW=0,cX=0,cY=0,cZ=0;//these integers will count the number of times each letter appears in the message
             
             printf("Enter cipher text in all UPPER CASE:\n");
@@ -293,7 +297,34 @@ int main ()
             printf("M: %d\nN: %d\nO: %d\nP: %d\nQ: %d\nR: %d\nS: %d\nT: %d\nU: %d\nV: %d\nW: %d\nX: %d\n",cM,cN,cO,cP,cQ,cR,cS,cT,cU,cV,cW,cX);    
             printf("Y: %d\nZ: %d\n",cY, cZ);//the number of times each letter appears is printed to stdout
         
+            /*
+             * The number of times each letter appears allows us to decrypt the cipher text using statistical analysis, By comparing the 
+             * frequency of each letter in the cipher text to the average frequency of each letter in the english language. For example, the
+             * letter E is the most frequently used letter in the english language, therefore the most frequent letter in the cipher text
+             * is decrypted as E.
+             */
             
+            printf("Enter the letters in the list above, in ascending order of frequency (ALL CAPS, no spaces):\n");
+            scanf("\n%[^\n]s", key6);
+            
+    
+            for(count6a=0; count6a<strlen(message6); count6a++)//loop moves along each character of cipher text (array message6)
+            {
+                for(count6b=0; count6b<26; count6b++)//loop moves along each letter of array key6
+                    {
+                        if (message6[count6a]==key6[count6b])//when a specific character in the cipher text is a specific letter in key6 
+                        {
+                            message6[count6a]=freq[count6b];//that character becomes the corresponding character in the standard alphabet
+                            break;
+                        }
+                        else
+                        {
+                            message6[count6a]=message6[count6a];//if the character is anything other than a letter it remains the same
+                        }
+                    }
+            }
+            
+            printf("Your message decrypted is: \n%s\n", message6);
             break;
             
         default: printf("Unknown option %c\nPlease enter 1, 2, 3, 4, 5 or 6\n", c); //This default case accounts for if the user inputs something other than 1-6 in the menu
